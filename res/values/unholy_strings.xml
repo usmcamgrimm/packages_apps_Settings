@@ -43,4 +43,11 @@
   <string name="app_notifications_info_desc">Tap on one of above channels to configure their light colors and other options</string>
   <string name="value_equals_default">Default</string>
   <string name="show_light_on_zen_title">Blink during Do Not Disturb</string>
+
+  <!-- Root Management -->
+  <string name="rootmanagement_title">Root management</string>
+  <string name="rootmanagement_dashboard_summary">Manage root access</string>
+
+  <!-- Dummy string needed to hide SuperSU from launcher, no need to translate -->
+  <string name="supersu_title">SuperSU</string>
 </resources>
