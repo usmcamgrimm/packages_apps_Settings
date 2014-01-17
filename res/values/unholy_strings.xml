@@ -26,4 +26,7 @@
   <!-- Dev Options Enabled by Default -->
   <string name="show_dev_already_enabled">Relax, Developer options are already enabled.</string>
 
+  <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+  <string name="supersu_title">SuperSU</string>
+
 </resources>
