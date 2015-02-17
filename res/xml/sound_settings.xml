@@ -70,6 +70,12 @@
                 android:entryValues="@array/less_notification_sounds_values"
                 android:persistent="false" />
 
+        <!-- Prevent audio ducking -->
+        <com.unholy.settings.preference.SystemSettingSwitchPreference
+                android:key="zen_disable_ducking_during_media_playback"
+                android:title="@string/interruptions_ignore_while_media_title"
+                android:summary="@string/interruptions_ignore_while_media_summary" />
+
         <!-- Interruptions -->
         <com.android.settingslib.RestrictedPreference
                 android:key="zen_mode"

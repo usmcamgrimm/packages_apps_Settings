@@ -79,4 +79,8 @@
   <string name="less_notification_sounds_2m">2 minutes</string>
   <string name="less_notification_sounds_5m">5 minutes</string>
 
+  <!-- Audio ducking -->
+  <string name="interruptions_ignore_while_media_title">Prevent audio interruptions</string>
+  <string name="interruptions_ignore_while_media_summary">Do not reduce media playback volume when a notification arrives</string>
+
 </resources>
