@@ -22,4 +22,8 @@
   <string name="unholy_mod_version">Unholy version</string>
   <string name="build_date">Build Date</string>
   <string name="mod_version_default">Default</string>
+
+  <!-- Dev Options Enabled by Default -->
+  <string name="show_dev_already_enabled">Relax, Developer options are already enabled.</string>
+
 </resources>
