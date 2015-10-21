@@ -128,4 +128,8 @@
 
   <!-- Screenshot sound -->
   <string name="screenshot_sound_title">Screenshot sound</string>
+
+    <!-- Camera sound switch -->
+    <string name="camera_sounds_title">Camera shutter sound</string>
+    <string name="camera_sound_warning_dialog_text">Disabling the camera shutter sound is illegal in some areas!</string>
 </resources>
