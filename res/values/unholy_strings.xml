@@ -20,6 +20,9 @@
   <!-- Dev Options -->
   <string name="show_dev_already_enabled">Development settings are enabled by default.</string>
 
+  <!-- App details: open play store link if app is user installed -->
+  <string name="app_play_store">Google Play</string>
+
   <!-- Changelog -->
   <string name="changelog_title">Changelog</string>
   <string name="changelog_summary">Recent updates</string>
