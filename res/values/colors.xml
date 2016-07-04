@@ -121,6 +121,9 @@
 
     <color name="card_background_grey">#eeeeee</color>
 
+    <!-- Changelog Colors -->
+    <color name="changelog_title_color">@*android:color/accent_device_default_light</color>
+
     <!-- Gestures settings -->
     <color name="gestures_setting_background_color">#f5f5f5</color>
 
