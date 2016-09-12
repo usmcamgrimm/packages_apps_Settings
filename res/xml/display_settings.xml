@@ -97,6 +97,13 @@
                 android:summaryOff="@string/summary_dashboard_conditions_disabled"
                 android:defaultValue="false" />
 
+        <com.unholy.settings.preference.SystemSettingSwitchPreference
+                android:key="disable_suggestions"
+                android:title="@string/dashboard_suggestions_title"
+                android:summaryOn="@string/summary_dashboard_suggestions_enabled"
+                android:summaryOff="@string/summary_dashboard_suggestions_disabled"
+                android:defaultValue="true" />
+
         <DropDownPreference
                 android:key="vr_display_pref"
                 android:summary="%s"
