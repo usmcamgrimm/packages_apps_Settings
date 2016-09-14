@@ -121,4 +121,8 @@
   <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
   <string name="supersu_title">SuperSU</string>
 
+  <!-- Menu label for reset the battery stats -->
+  <string name="menu_stats_reset">Reset stats</string>
+  <!-- Reset stats confirmation dialog's message -->
+  <string name="reset_stats_msg">Battery history stats will be reset</string>
 </resources>
