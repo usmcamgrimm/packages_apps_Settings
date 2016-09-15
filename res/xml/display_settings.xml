@@ -90,6 +90,35 @@
                 android:summary="@string/wake_when_plugged_or_unplugged_summary"
                 android:defaultValue="true" />
 
+        <com.unholy.settings.preference.SystemSettingSwitchPreference
+                android:key="disable_dashboard_conditions"
+                android:title="@string/dashboard_conditions_title"
+                android:summaryOn="@string/summary_dashboard_conditions_enabled"
+                android:summaryOff="@string/summary_dashboard_conditions_disabled"
+                android:defaultValue="false" />
+
+        <DropDownPreference
+                android:key="vr_display_pref"
+                android:summary="%s"
+                android:title="@string/display_vr_pref_title" />
+
+        <PreferenceCategory
+                android:key="rotation_category"
+                android:title="@string/display_rotation_category_title">
+
+        <SwitchPreference
+                android:key="accelerometer"
+                android:title="@string/accelerometer_title"
+                android:persistent="false" />
+
+        <MultiSelectListPreference
+                android:key="rotation_angles"
+                android:title="@string/display_rotation_title"
+                android:defaultValue="@array/display_rotation_default_values"
+                android:entries="@array/display_rotation_entries"
+                android:entryValues="@array/display_rotation_values"
+                android:persistent="false" />
+
         <PreferenceScreen
                 android:key="font_size"
                 android:title="@string/title_font_size"
