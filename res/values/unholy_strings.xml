@@ -103,4 +103,6 @@
   <string name="dashboard_columns_portrait_title">Columns (portrait)</string>
   <string name="dashboard_columns_landscape_title">Columns (landscape)</string>
 
+  <!-- Substratum  -->
+  <string name="substratum_title">Substratum</string>
 </resources>

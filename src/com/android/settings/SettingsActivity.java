@@ -233,6 +233,8 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final String MAGISK_FRAGMENT = "com.android.settings.MagiskManager";
 
+    private static final String SUBSTRATUM_FRAGMENT = "com.android.settings.Substratum";
+
     private String mFragmentClass;
 
     private CharSequence mInitialTitle;
@@ -1033,6 +1035,13 @@ public class SettingsActivity extends SettingsDrawerActivity
             finish();
             return null;
         }
+        if (SUBSTRATUM_FRAGMENT.equals(fragmentName)) {
+            Intent substratumIntent = new Intent();
+            substratumIntent.setClassName("projekt.substratum", "projekt.substratum.LaunchActivity");
+            startActivity(substratumIntent);
+            finish();
+            return null;
+        }
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);
@@ -1133,6 +1142,16 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                         Settings.MagiskActivity.class.getName()),
                 magiskSupported, isAdmin, pm);
+
+        // Remove Substratum if not installed
+        boolean subSupported = false;
+        try {
+            subSupported = (getPackageManager().getPackageInfo("projekt.substratum", 0).versionCode >= 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.SubstratumActivity.class.getName()),
+                subSupported, isAdmin, pm);
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
