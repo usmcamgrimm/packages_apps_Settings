@@ -134,6 +134,10 @@ import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 import com.unholy.settings.UnholySettings;
 import com.unholy.settings.gestures.GestureSettings;
+import com.unholy.settings.fragments.FlingSettings;
+import com.unholy.settings.fragments.NavbarSettings;
+import com.unholy.settings.fragments.SmartbarSettings;
+import com.unholy.settings.fragments.PulseSettings;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -361,7 +365,11 @@ public class SettingsActivity extends SettingsDrawerActivity
             MasterClear.class.getName(),
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
-            AutomaticStorageManagerSettings.class.getName()
+            AutomaticStorageManagerSettings.class.getName(),
+            NavbarSettings.class.getName(),
+            FlingSettings.class.getName(),
+            SmartbarSettings.class.getName(),
+            PulseSettings.class.getName()
     };
 
 
