@@ -39,6 +39,10 @@
   <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
   <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting a power source</string>
 
+  <!-- Notification LED Shortcut -->
+  <string name="unholy_notifications_shortcut">Unholy notification LED</string>
+  <string name="unholy_notifications_shortcut_summary">Shortcut to the Unholy notifications LED options</string>
+
   <!-- Volume Steps -->
   <string name="volume_steps_title">Volume steps</string>
   <string name="volume_steps_alarm_title">Volume steps: Alarm</string>

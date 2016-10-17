@@ -25,4 +25,11 @@
             android:title="@string/lock_screen_notifications_title"
             android:summary="%s" />
 
+    <!-- Unholy Notifications LEDs -->
+    <PreferenceScreen
+            android:key="notifications_settings"
+            android:title="@string/unholy_notifications_shortcut" 
+            android:summary="@string/unholy_notifications_shortcut_summary"
+            android:fragment="com.unholy.settings.fragments.Notifications"/>
+
 </PreferenceScreen>
