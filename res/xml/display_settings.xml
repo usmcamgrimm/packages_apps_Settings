@@ -84,6 +84,12 @@
                 android:title="@string/doze_title"
                 android:summary="@string/doze_summary" />
 
+        <com.unholy.settings.preference.GlobalSettingSwitchPreference
+                android:key="wake_when_plugged_or_unplugged"
+                android:title="@string/wake_when_plugged_or_unplugged_title"
+                android:summary="@string/wake_when_plugged_or_unplugged_summary"
+                android:defaultValue="true" />
+
          <ListPreference
                 android:key="dashboard_columns"
                 android:title="@string/dashboard_columns_title"
@@ -93,11 +99,12 @@
                 android:summary="@string/dashboard_columns_summary"
                 android:persistent="false" />
 
-        <com.unholy.settings.preference.GlobalSettingSwitchPreference
-                android:key="wake_when_plugged_or_unplugged"
-                android:title="@string/wake_when_plugged_or_unplugged_title"
-                android:summary="@string/wake_when_plugged_or_unplugged_summary"
-                android:defaultValue="true" />
+        <com.unholy.settings.preference.SystemSettingSwitchPreference
+                android:key="dashboard_summary_double_lines"
+                android:title="@string/dashboard_summary_double_lines_title"
+                android:summaryOn="@string/dashboard_summary_double_lines_summary_on"
+                android:summaryOff="@string/dashboard_summary_double_lines_summary_off"
+                android:defaultValue="false" />
 
         <com.unholy.settings.preference.SystemSettingSwitchPreference
                 android:key="disable_dashboard_conditions"

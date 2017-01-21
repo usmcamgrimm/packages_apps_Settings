@@ -290,7 +290,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     private void showRemoveOption(View v, final Tile suggestion) {
         PopupMenu popup = new PopupMenu(
-                new ContextThemeWrapper(mContext, R.style.Theme_AppCompat_DayNight), v);
+                 new ContextThemeWrapper(mContext, R.style.Theme_AppCompat_DayNight), v);
         popup.getMenu().add(R.string.suggestion_remove).setOnMenuItemClickListener(
                 new MenuItem.OnMenuItemClickListener() {
             @Override
@@ -365,8 +365,19 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         holder.icon.setImageDrawable(mCache.getIcon(tile.icon));
         holder.title.setText(tile.title);
         if (!TextUtils.isEmpty(tile.summary)) {
-            holder.summary.setText(tile.summary);
-            holder.summary.setVisibility(View.VISIBLE);
+           if ((Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.REMOVE_TILE_SUMMARY, 0) == 1)) {
+                holder.summary.setVisibility(View.GONE);
+            } else {
+                holder.summary.setText(tile.summary);
+                holder.summary.setVisibility(View.VISIBLE);
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.DASHBOARD_SUMMARY_DOUBLE_LINES, 0) == 1) {
+                    holder.summary.setSingleLine(false);
+                } else {
+                    holder.summary.setSingleLine(true);
+                }
+            }
         } else {
             holder.summary.setVisibility(View.GONE);
         }
