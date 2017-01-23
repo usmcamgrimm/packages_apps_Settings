@@ -14,7 +14,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="unholy_mod_version">Unholy version</string>
-	<string name="build_date">Build Date</string>
-	<string name="mod_version_default">Default</string>
+  <string name="unholy_mod_version">Unholy version</string>
+  <string name="build_date">Build Date</string>
+  <string name="mod_version_default">Default</string>
 </resources>
