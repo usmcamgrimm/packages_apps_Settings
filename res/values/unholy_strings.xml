@@ -32,6 +32,10 @@
   <!-- Dev Options Enabled by Default -->
   <string name="show_dev_already_enabled">Relax, Developer options are already enabled.</string>
 
+  <!-- Magisk Manager -->
+  <string name="magisk_title">Magisk Manager</string>
+  <string name="magisk_summary">Control modules and settings</string>
+
   <!-- Wake on Plug -->
   <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
   <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting a power source</string>
