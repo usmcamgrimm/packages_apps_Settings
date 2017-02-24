@@ -6736,12 +6736,6 @@
         LIMIT=45] -->
    <string name="app_permissions_group_summary"><xliff:g id="count" example="10">%d</xliff:g> of <xliff:g id="count" example="10">%d</xliff:g> apps allowed</string>
 
-   <!-- Label for tap to wake setting [CHAR LIMIT=30] -->
-   <string name="tap_to_wake">Tap to wake</string>
-
-   <!-- Summary for take to wake setting [CHAR LIMIT=90] -->
-   <string name="tap_to_wake_summary">Double-tap anywhere on the screen to wake device</string>
-
     <!-- Title of a preference item that will show the user's preferences for this app's priority for opening links to websites that it claims to support [CHAR LIMIT=30] -->
     <string name="domain_urls_title">Opening links</string>
 
@@ -7770,66 +7764,6 @@
 
     <!-- Preference menu title for accessing the deletion helper from the storage manager settings. [CHAR LIMIT=30]-->
     <string name="deletion_helper_preference_title">Free up space now</string>
-
-    <!-- Preference title for gesture settings [CHAR LIMIT=25]-->
-    <string name="gesture_preference_title">Gestures</string>
-
-    <!-- Preference summary for gesture settings (phone) [CHAR LIMIT=NONE]-->
-    <string name="gesture_preference_summary" product="default">Quick gestures to control your phone</string>
-    <!-- Preference summary for gesture settings (tablet) [CHAR LIMIT=NONE]-->
-    <string name="gesture_preference_summary" product="tablet">Quick gestures to control your tablet</string>
-    <!-- Preference summary for gesture settings (device) [CHAR LIMIT=NONE]-->
-    <string name="gesture_preference_summary" product="device">Quick gestures to control your device</string>
-
-    <!-- Title text for double tap power for camera [CHAR LIMIT=60]-->
-    <string name="double_tap_power_for_camera_title">Jump to Camera</string>
-
-    <!-- Summary text for double tap power for camera [CHAR LIMIT=160]-->
-    <string name="double_tap_power_for_camera_summary">To quickly open camera, press the power button twice. Works from any screen</string>
-
-    <!-- Title text for double twist for camera mode [CHAR LIMIT=60]-->
-    <string name="double_twist_for_camera_mode_title">Flip camera</string>
-
-    <!-- Summary text for double twist for camera mode  [CHAR LIMIT=160]-->
-    <string name="double_twist_for_camera_mode_summary"></string>
-
-    <!-- Title text for ambient display double tap (phone) [CHAR LIMIT=60]-->
-    <string name="ambient_display_title" product="default">Double-tap to check phone</string>
-    <!-- Title text for ambient display double tap (tablet) [CHAR LIMIT=60]-->
-    <string name="ambient_display_title" product="tablet">Double-tap to check tablet</string>
-    <!-- Title text for ambient display double tap (device) [CHAR LIMIT=60]-->
-    <string name="ambient_display_title" product="device">Double-tap to check device</string>
-
-    <!-- Summary text for ambient display double tap [CHAR LIMIT=160]-->
-    <string name="ambient_display_summary">To quickly check your notifications, double-tap your screen</string>
-
-    <!-- Title text for ambient display pick up (phone) [CHAR LIMIT=60]-->
-    <string name="ambient_display_pickup_title" product="default">Lift to check phone</string>
-    <!-- Title text for ambient display pick up (tablet) [CHAR LIMIT=60]-->
-    <string name="ambient_display_pickup_title" product="tablet">Lift to check tablet</string>
-    <!-- Title text for ambient display pick up (device) [CHAR LIMIT=60]-->
-    <string name="ambient_display_pickup_title" product="device">Lift to check device</string>
-
-    <!-- Summary text for ambient display (phone) [CHAR LIMIT=160]-->
-    <string name="ambient_display_pickup_summary" product="default">To quickly check your notifications, pick up your phone</string>
-    <!-- Summary text for ambient display (tablet) [CHAR LIMIT=160]-->
-    <string name="ambient_display_pickup_summary" product="tablet">To quickly check your notifications, pick up your tablet</string>
-    <!-- Summary text for ambient display (device) [CHAR LIMIT=160]-->
-    <string name="ambient_display_pickup_summary" product="device">To quickly check your notifications, pick up your device</string>
-
-    <!-- Title text for fingerprint swipe for notifications [CHAR LIMIT=60]-->
-    <string name="fingerprint_swipe_for_notifications_title">Swipe for notifications</string>
-
-    <!-- Summary text for fingerprint swipe for notifications (phone) [CHAR LIMIT=160]-->
-    <string name="fingerprint_swipe_for_notifications_summary" product="default">To check your notifications, swipe down on the fingerprint sensor on the back of your phone</string>
-    <!-- Summary text for fingerprint swipe for notifications (tablet) [CHAR LIMIT=160]-->
-    <string name="fingerprint_swipe_for_notifications_summary" product="tablet">To check your notifications, swipe down on the fingerprint sensor on the back of your tablet</string>
-    <!-- Summary text for fingerprint swipe for notifications (device) [CHAR LIMIT=160]-->
-    <string name="fingerprint_swipe_for_notifications_summary" product="device">To check your notifications, swipe down on the fingerprint sensor on the back of your device</string>
-
-    <!-- Switch text for each gesture setting state -->
-    <string name="gesture_setting_on">On</string>
-    <string name="gesture_setting_off">Off</string>
 
     <!-- setting enable OEM unlock Checkbox's summary to explain this Checkbox is disabled because the bootloader has been unlocked [CHAR_LIMIT=60] -->
     <string name="oem_unlock_enable_disabled_summary_bootloader_unlocked">Bootloader is already unlocked</string>
