@@ -150,13 +150,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_DOZE);
         }
 
-        if (isTapToWakeAvailable(getResources())) {
-            mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
-            mTapToWakePreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_TAP_TO_WAKE);
-        }
-
         if (isCameraGestureAvailable(getResources())) {
             mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
             mCameraGesturePreference.setOnPreferenceChangeListener(this);
