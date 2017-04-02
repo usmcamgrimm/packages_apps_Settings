@@ -102,6 +102,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String AMBIENT_DOZE_CUSTOM_BRIGHTNESS = "ambient_doze_custom_brightness";
     private static final String DASHBOARD_PORTRAIT_COLUMNS = "dashboard_portrait_columns";
     private static final String DASHBOARD_LANDSCAPE_COLUMNS = "dashboard_landscape_columns";
+    private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
 
     private Preference mFontSizePref;
 
@@ -119,6 +120,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
+    private SwitchPreference mProximityCheckOnWakePreference;
 
     private static final String ROTATION_ANGLE_0 = "0";
     private static final String ROTATION_ANGLE_90 = "90";
@@ -272,6 +274,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             removePreference(AMBIENT_DOZE_CUSTOM_BRIGHTNESS);
             removePreference(AMBIENT_DOZE_AUTO_BRIGHTNESS);
+        }
+
+        mProximityCheckOnWakePreference = (SwitchPreference) findPreference(KEY_PROXIMITY_WAKE);
+        boolean proximityCheckOnWake = getResources().getBoolean(
+                com.android.internal.R.bool.config_proximityCheckOnWake);
+        if (!proximityCheckOnWake) {
+            if (mProximityCheckOnWakePreference != null) {
+                removePreference(KEY_PROXIMITY_WAKE);
+            }
+            Settings.System.putInt(resolver, Settings.System.PROXIMITY_ON_WAKE, 0);
         }
     }
 
