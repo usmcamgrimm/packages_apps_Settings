@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemProperties;
 import android.os.Vibrator;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
@@ -95,7 +96,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
     // Used for power notification uri string if set to silent
     private static final String POWER_NOTIFICATIONS_SILENT_URI = "silent";
 
-    private SwitchPreference mPowerSounds;
+    private ListPreference mPowerSounds;
     private SwitchPreference mPowerSoundsVibrate;
     private Preference mPowerSoundsRingtone;
     private static final String KEY_CAMERA_SOUNDS = "camera_sounds";
@@ -236,9 +237,13 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
         mContext = getActivity();
 
         // power state change notification sounds
-        mPowerSounds = (SwitchPreference) findPreference(KEY_POWER_NOTIFICATIONS);
-        mPowerSounds.setChecked(Global.getInt(getContentResolver(),
-                Global.POWER_NOTIFICATIONS_ENABLED, 0) != 0);
+        mPowerSounds = (ListPreference) findPreference(KEY_POWER_NOTIFICATIONS);
+        int mPowerSoundsValue =
+                Global.getInt(getContentResolver(), Global.POWER_NOTIFICATIONS_ENABLED, 0);
+        mPowerSounds.setValue(Integer.toString(mPowerSoundsValue));
+        mPowerSounds.setSummary(mPowerSounds.getEntry());
+        mPowerSounds.setOnPreferenceChangeListener(this);
+
         mPowerSoundsVibrate = (SwitchPreference) findPreference(KEY_POWER_NOTIFICATIONS_VIBRATE);
         mPowerSoundsVibrate.setChecked(Global.getInt(getContentResolver(),
                 Global.POWER_NOTIFICATIONS_VIBRATE, 0) != 0);
@@ -303,11 +308,6 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
         if (mBootSounds != null && preference == mBootSounds) {
             SystemProperties.set(PROPERTY_BOOT_SOUNDS, mBootSounds.isChecked() ? "1" : "0");
             return false;
-        } else if (preference == mPowerSounds) {
-            Global.putInt(getContentResolver(),
-                    Global.POWER_NOTIFICATIONS_ENABLED,
-                    mPowerSounds.isChecked() ? 1 : 0);
-            return false;
         } else if (preference == mPowerSoundsVibrate) {
             Global.putInt(getContentResolver(),
                     Global.POWER_NOTIFICATIONS_VIBRATE,
@@ -368,6 +368,16 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
         if (KEY_CAMERA_SOUNDS.equals(key)) {
             final String value = ((Boolean) o) ? "1" : "0";
             SystemProperties.set(PROP_CAMERA_SOUND, value);
+            return true;
+        } else if (KEY_POWER_NOTIFICATIONS.equals(key)) {
+            int mPowerSoundsValue = Integer.valueOf((String) o);
+            Global.putInt(getContentResolver(),
+                    Global.POWER_NOTIFICATIONS_ENABLED,
+                    mPowerSoundsValue);
+            int index = mPowerSounds.findIndexOfValue((String) o);
+            mPowerSounds.setSummary(mPowerSounds.getEntries()[index]);
+            mPowerSoundsVibrate.setEnabled(index > 0);
+            mPowerSoundsRingtone.setEnabled(index > 0);
             return true;
         }
         return false;

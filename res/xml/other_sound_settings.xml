@@ -34,6 +34,12 @@
             android:key="docking_sounds"
             android:title="@string/docking_sounds_title" />
 
+    <!-- Camera shutter sound -->
+    <SwitchPreference
+            android:key="camera_sounds"
+            android:title="@string/camera_sounds_title"
+            android:defaultValue="true" />
+
     <com.unholy.settings.preference.SystemSettingSwitchPreference
         android:key="screenshot_sound"
         android:title="@string/screenshot_sound_title"
@@ -77,28 +83,19 @@
     <PreferenceCategory
             android:title="@string/power_notifications_category_title"/>
 
-    <SwitchPreference
+    <ListPreference
             android:key="power_notifications"
-            android:title="@string/power_notifications_enable_title"
-            android:summary="@string/power_notifications_enable_summary"
-            android:defaultValue="false" />
+            android:title="@string/power_notifications_conditions_title"
+            android:entries="@array/power_notification_entries"
+            android:entryValues="@array/power_notification_values" />
 
     <SwitchPreference
             android:key="power_notifications_vibrate"
             android:title="@string/power_notifications_vibrate_title"
-            android:defaultValue="false"
-            android:dependency="power_notifications" />
+            android:defaultValue="false" />
 
     <Preference
             android:key="power_notifications_ringtone"
-            android:title="@string/power_notifications_ringtone_title"
-            android:dependency="power_notifications" />
-
-    <!-- Camera shutter sound -->
-    <SwitchPreference
-            android:key="camera_sounds"
-            android:title="@string/camera_sounds_title"
-            android:summary="@string/camera_sounds_summary"
-            android:defaultValue="true" />
+            android:title="@string/power_notifications_ringtone_title" />
 
 </PreferenceScreen>
