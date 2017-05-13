@@ -89,6 +89,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_POWER_NOTIFICATIONS = "power_notifications";
     private static final String KEY_POWER_NOTIFICATIONS_VIBRATE = "power_notifications_vibrate";
     private static final String KEY_POWER_NOTIFICATIONS_RINGTONE = "power_notifications_ringtone";
+    private static final String KEY_POWER_NOTIFICATIONS_CUSTOM_RINGTONE = "power_notifications_custom_ringtone";
 
     // Request code for power notification ringtone picker
     private static final int REQUEST_CODE_POWER_NOTIFICATIONS_RINGTONE = 1;
@@ -103,6 +104,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
     private static final String PROP_CAMERA_SOUND = "persist.sys.camera-sound";
 
     private SwitchPreference mCameraSounds;
+    private SwitchPreference mPowerSoundsCustomRingtone;
 
     private static final SettingPref PREF_DIAL_PAD_TONES = new SettingPref(
             TYPE_SYSTEM, KEY_DIAL_PAD_TONES, System.DTMF_TONE_WHEN_DIALING, DEFAULT_ON) {
@@ -240,21 +242,32 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
         mPowerSounds = (ListPreference) findPreference(KEY_POWER_NOTIFICATIONS);
         int mPowerSoundsValue =
                 Global.getInt(getContentResolver(), Global.POWER_NOTIFICATIONS_ENABLED, 0);
-        mPowerSounds.setValue(Integer.toString(mPowerSoundsValue));
+        mPowerSounds.setValueIndex(mPowerSoundsValue);
         mPowerSounds.setSummary(mPowerSounds.getEntry());
         mPowerSounds.setOnPreferenceChangeListener(this);
 
         mPowerSoundsVibrate = (SwitchPreference) findPreference(KEY_POWER_NOTIFICATIONS_VIBRATE);
         mPowerSoundsVibrate.setChecked(Global.getInt(getContentResolver(),
                 Global.POWER_NOTIFICATIONS_VIBRATE, 0) != 0);
+        mPowerSoundsVibrate.setEnabled(mPowerSounds.findIndexOfValue(mPowerSounds.getValue()) > 0);
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator == null || !vibrator.hasVibrator()) {
             removePreference(KEY_POWER_NOTIFICATIONS_VIBRATE);
         }
 
+        mPowerSoundsCustomRingtone =
+                (SwitchPreference) findPreference(KEY_POWER_NOTIFICATIONS_CUSTOM_RINGTONE);
+        mPowerSoundsCustomRingtone.setChecked(Global.getInt(getContentResolver(),
+                Global.POWER_NOTIFICATION_CUSTOM_RINGTONE, 0) != 0);
+        mPowerSoundsCustomRingtone.setEnabled(
+                mPowerSounds.findIndexOfValue(mPowerSounds.getValue()) > 0);
+
         mPowerSoundsRingtone = findPreference(KEY_POWER_NOTIFICATIONS_RINGTONE);
         String currentPowerRingtonePath =
                 Global.getString(getContentResolver(), Global.POWER_NOTIFICATIONS_RINGTONE);
+        mPowerSoundsRingtone.setEnabled(mPowerSounds.findIndexOfValue(mPowerSounds.getValue()) > 0 &&
+                mPowerSoundsCustomRingtone.isChecked());
+
 
         // set to default notification if we don't yet have one
         if (currentPowerRingtonePath == null) {
@@ -318,6 +331,13 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
                     Global.getString(getContentResolver(),
                             Global.POWER_NOTIFICATIONS_RINGTONE));
 	        return false;
+        } else if (preference == mPowerSoundsCustomRingtone) {
+            Global.putInt(getContentResolver(),
+                    Global.POWER_NOTIFICATION_CUSTOM_RINGTONE,
+                    mPowerSoundsCustomRingtone.isChecked() ? 1 : 0);
+            mPowerSoundsRingtone.setEnabled(mPowerSounds.findIndexOfValue(mPowerSounds.getValue()) > 0
+                    && mPowerSoundsCustomRingtone.isChecked());
+            return false;
         } else {
             return super.onPreferenceTreeClick(preference);
         }
@@ -375,9 +395,11 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements
                     Global.POWER_NOTIFICATIONS_ENABLED,
                     mPowerSoundsValue);
             int index = mPowerSounds.findIndexOfValue((String) o);
-            mPowerSounds.setSummary(mPowerSounds.getEntries()[index]);
+            mPowerSounds.setValueIndex(index);
+            mPowerSounds.setSummary(mPowerSounds.getEntry());
             mPowerSoundsVibrate.setEnabled(index > 0);
-            mPowerSoundsRingtone.setEnabled(index > 0);
+            mPowerSoundsCustomRingtone.setEnabled(index > 0);
+            mPowerSoundsRingtone.setEnabled(index > 0 && mPowerSoundsCustomRingtone.isChecked());
             return true;
         }
         return false;
