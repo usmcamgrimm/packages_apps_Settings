@@ -129,7 +129,7 @@ public abstract class Condition {
     public boolean shouldShow() {
         return isActive() && !isSilenced()
                && ((Settings.System.getInt(mManager.getContext().getContentResolver(),
-               Settings.System.DISABLE_DASHBOARD_CONDITIONS, 1) == 1));
+               Settings.System.DISABLE_DASHBOARD_CONDITIONS, 0) == 1));
     }
 
     long getLastChange() {

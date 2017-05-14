@@ -116,7 +116,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     public List<Tile> getSuggestions() {
         if ((Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.DISABLE_SUGGESTIONS, 1) == 1)) {
+                    Settings.System.DISABLE_SUGGESTIONS, 0) == 1)) {
              return mSuggestions;
         } else {
              return null;
@@ -128,7 +128,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         mCategories = categories;
 
         if ((Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.DISABLE_SUGGESTIONS, 1) == 1)) {
+                    Settings.System.DISABLE_SUGGESTIONS, 0) == 1)) {
              mSuggestions = suggestions;
         } else {
              mSuggestions = null;
@@ -377,7 +377,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         holder.title.setText(tile.title);
         if (!TextUtils.isEmpty(tile.summary)) {
            if ((Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.REMOVE_TILE_SUMMARY, 1) == 1)) {
+                    Settings.System.REMOVE_TILE_SUMMARY, 0) == 1)) {
                 holder.summary.setText(tile.summary);
                 holder.summary.setVisibility(View.VISIBLE);
                 if (portraitColumns == 1) {
