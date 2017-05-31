@@ -51,6 +51,13 @@
         android:title="@string/wifi_cellular_data_fallback_title"
         android:summary="@string/wifi_cellular_data_fallback_summary"/>
 
+    <ListPreference
+        android:key="frequency_band"
+        android:title="@string/wifi_setting_frequency_band_title"
+        android:summary="@string/wifi_setting_frequency_band_summary"
+        android:entries="@array/wifi_frequency_band_entries"
+        android:entryValues="@array/wifi_frequency_band_values" />
+
     <com.android.settings.DividerPreference
         android:key="mac_address"
         android:title="@string/wifi_advanced_mac_address_title"

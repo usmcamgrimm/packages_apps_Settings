@@ -134,11 +134,7 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
         mPassword = (EditText) mView.findViewById(R.id.password);
 
         ArrayAdapter <CharSequence> channelAdapter;
-        String countryCode = mWifiManager.getCountryCode();
-        if (!mWifiManager.isDualBandSupported() || countryCode == null) {
-            //If no country code, 5GHz AP is forbidden
-            Log.i(TAG,(!mWifiManager.isDualBandSupported() ? "Device do not support 5GHz " :"") 
-                    + (countryCode == null ? " NO country code" :"") +  " forbid 5GHz");
+        if (!mWifiManager.is5GHzBandSupported()) {
             channelAdapter = ArrayAdapter.createFromResource(mContext,
                     R.array.wifi_ap_band_config_2G_only, android.R.layout.simple_spinner_item);
             mWifiConfig.apBand = 0;
@@ -214,11 +210,9 @@ public class WifiApDialog extends AlertDialog implements View.OnClickListener,
     }
 
     private void validate() {
-        String mSsidString = mSsid.getText().toString();
-        if ((mSsid != null && mSsid.length() == 0)
-                || ((mSecurityTypeIndex == WPA2_INDEX) && mPassword.length() < 8)
-                || (mSsid != null &&
-                Charset.forName("UTF-8").encode(mSsidString).limit() > 32)) {
+        if ((mSsid != null && mSsid.length() == 0) ||
+                   ((mSecurityTypeIndex == WPA2_INDEX)&&
+                        mPassword.length() < 8)) {
             getButton(BUTTON_SUBMIT).setEnabled(false);
         } else {
             getButton(BUTTON_SUBMIT).setEnabled(true);
