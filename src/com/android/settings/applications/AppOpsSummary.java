@@ -138,9 +138,6 @@ public class AppOpsSummary extends InstrumentedFragment {
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
         mAdapter = new MyPagerAdapter(getChildFragmentManager());
         mViewPager.setAdapter(mAdapter);
-        if (defaultTab >= 0) {
-            mViewPager.setCurrentItem(defaultTab);
-        }
         mViewPager.setOnPageChangeListener(mAdapter);
         PagerTabStrip tabs = (PagerTabStrip) rootView.findViewById(R.id.tabs);
 
