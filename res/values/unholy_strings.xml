@@ -27,6 +27,9 @@
   <string name="vendor_version">Vendor version</string>
   <string name="vendor_version_default">Unknown</string>
 
+  <!-- Unholy version -->
+  <string name="unholy_version_title">Unholy Version</string>
+
   <!-- Changelog -->
   <string name="changelog_title">Changelog</string>
   <string name="changelog_summary">Recent updates</string>
