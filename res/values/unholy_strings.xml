@@ -13,8 +13,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Changelog -->
-    <string name="changelog_title">Changelog</string>
-    <string name="changelog_summary">Recent updates</string>
-    <string name="changelog_error">Unable to load changelog</string>
+  <!-- UnholySettings -->
+  <string name="unholy_settings_activity">Unholy Settings</string>
+  <string name="unholy_settings_activity_summary">Customization options</string>
+
+  <!-- Changelog -->
+  <string name="changelog_title">Changelog</string>
+  <string name="changelog_summary">Recent updates</string>
+  <string name="changelog_error">Unable to load changelog</string>
 </resources>
